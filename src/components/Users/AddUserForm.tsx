@@ -1,8 +1,14 @@
 "use client";
 import DropZoneCommon from "@/Common/DropZoneCommon";
-import { CompanyName, ContactNumber, EmailAddress, UploadItemImageHere, UserName, Website } from "@/utils/Constant";
+import {
+  CompanyName,
+  ContactNumber,
+  EmailAddress,
+  UploadItemImageHere,
+  UserName,
+  Website,
+} from "@/utils/Constant";
 import React from "react";
-
 
 const AddUserForm = () => {
   return (
@@ -21,11 +27,19 @@ const AddUserForm = () => {
       </div>
       <div className="mb-3">
         <label className="form-label-title ">{ContactNumber}</label>
-        <input className="form-control" type="Number" placeholder="Contact number"/>
+        <input
+          className="form-control"
+          type="Number"
+          placeholder="Contact number"
+        />
       </div>
       <div className="mb-3">
         <label className="form-label-title ">{CompanyName}</label>
-        <input className="form-control" type="text" placeholder="Company Name"/>
+        <input
+          className="form-control"
+          type="text"
+          placeholder="Company Name"
+        />
       </div>
       <div className="mb-3">
         <label className="form-label-title ">{Website}</label>
@@ -33,7 +47,7 @@ const AddUserForm = () => {
       </div>
       <div className="mb-3">
         <label className="form-label-title ">{UploadItemImageHere}</label>
-        <DropZoneCommon />
+        <DropZoneCommon onFilesSelected={() => console.log("DropZoneCommon")} />
       </div>
     </form>
   );
