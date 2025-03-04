@@ -7,7 +7,9 @@ const PictureInsertion = () => {
       <form className="theme-form mega-form">
         <div className="mb-3">
           <label className="form-label-title  ">Image</label>
-          <DropZoneCommon />
+          <DropZoneCommon
+            onFilesSelected={() => console.log("DropZoneCommon")}
+          />
         </div>
       </form>
     </div>
