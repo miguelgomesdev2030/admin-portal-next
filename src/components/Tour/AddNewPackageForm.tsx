@@ -3,7 +3,10 @@ import dynamic from "next/dynamic";
 import React from "react";
 
 const AddNewPackageForm = () => {
-  const MultipleSelectBox = dynamic(() => import("@/Common/MultipleSelectBox"), { ssr: false });
+  const MultipleSelectBox = dynamic(
+    () => import("@/Common/MultipleSelectBox"),
+    { ssr: false }
+  );
 
   return (
     <form className="theme-form mega-form">
@@ -19,22 +22,36 @@ const AddNewPackageForm = () => {
         <label className="form-label-title ">
           Upload Tour Banner Image here{" "}
         </label>
-        <DropZoneCommon/>
+        <DropZoneCommon onFilesSelected={() => console.log("DropZoneCommon")} />
       </div>
       <div className="mb-3">
         <label className="form-label-title ">Tour Duration </label>
-        <input className="form-control" type="Number" placeholder="Enter Duration of tour"/>
+        <input
+          className="form-control"
+          type="Number"
+          placeholder="Enter Duration of tour"
+        />
       </div>
       <div className="mb-3">
         <label className="form-label-title ">Package Price</label>
         <div className="input-group mb-3">
           <span className="input-group-text">$ </span>
-          <input className="form-control" placeholder="$200" type="text" aria-label="Amount (to the nearest dollar)"/>
+          <input
+            className="form-control"
+            placeholder="$200"
+            type="text"
+            aria-label="Amount (to the nearest dollar)"
+          />
         </div>
       </div>
       <div className="mb-3">
-        <label htmlFor="tour-category" className="form-label-title ">Tour Category</label>
-        <select id="tour-category" className="js-example-basic-single col-sm-12">
+        <label htmlFor="tour-category" className="form-label-title ">
+          Tour Category
+        </label>
+        <select
+          id="tour-category"
+          className="js-example-basic-single col-sm-12"
+        >
           <option value="BU">Business Travel</option>
           <option value="FA">Family Vacation</option>
           <option value="LO">Long-Term Slow Trip</option>

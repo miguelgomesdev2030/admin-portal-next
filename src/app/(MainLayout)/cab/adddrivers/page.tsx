@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import CommonCardFooter from "@/Common/CommonCardFooter";
 import DropZoneCommon from "@/Common/DropZoneCommon";
 import DatePicker from "@/components/Hotel/common/DatePicker";
@@ -19,13 +19,19 @@ const AllCars = () => {
                   <form className="theme-form mega-form">
                     <div className="mb-3">
                       <label className="form-label-title ">Driver Name</label>
-                      <input className="form-control" type="text" placeholder="Driver Name"/>
+                      <input
+                        className="form-control"
+                        type="text"
+                        placeholder="Driver Name"
+                      />
                     </div>
                     <div className="mb-3">
                       <label className="form-label-title ">
                         Upload Driver Image here{" "}
                       </label>
-                      <DropZoneCommon/>
+                      <DropZoneCommon
+                        onFilesSelected={() => console.log("DropZoneCommon")}
+                      />
                     </div>
                     <div className="mb-3">
                       <label htmlFor="gender" className="form-label-title ">
@@ -43,7 +49,7 @@ const AllCars = () => {
                       </label>
                       <div className="input-group date">
                         <div className="input-group">
-                          <DatePicker/>
+                          <DatePicker />
                           <div className="input-group-text">
                             <i className="fa fa-calendar" />
                           </div>
@@ -52,15 +58,25 @@ const AllCars = () => {
                     </div>
                     <div className="mb-3 choose">
                       <label className="form-label-title ">ID Document </label>
-                      <input className="form-control " type="file"/>
+                      <input className="form-control " type="file" />
                     </div>
                     <div className="mb-3">
-                      <label className="form-label-title ">Contact Number</label>
-                      <input className="form-control" type="Number" placeholder="Contact Number"/>
+                      <label className="form-label-title ">
+                        Contact Number
+                      </label>
+                      <input
+                        className="form-control"
+                        type="Number"
+                        placeholder="Contact Number"
+                      />
                     </div>
                     <div className="mb-3">
                       <label className="form-label-title ">Email Address</label>
-                      <input className="form-control" type="email" placeholder=" Email address"/>
+                      <input
+                        className="form-control"
+                        type="email"
+                        placeholder=" Email address"
+                      />
                     </div>
                   </form>
                 </div>

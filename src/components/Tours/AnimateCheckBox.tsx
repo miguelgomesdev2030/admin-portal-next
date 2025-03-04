@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import DropZoneCommon from "@/Common/DropZoneCommon";
 import EditorsSimple from "@/Common/EditorsSimple";
 import { animateCheckBoxes, roomAmenitiesData } from "@/data/Hotel";
@@ -14,8 +14,13 @@ const AnimateCheckBox = () => {
               <div className=" col-xs-12 col-sm-6" key={index}>
                 {data.children.map((item, detail) => (
                   <label className="d-block" htmlFor={item} key={detail}>
-                    <input className="checkbox_animated" id={item} type="checkbox" />{item}
-                 </label>
+                    <input
+                      className="checkbox_animated"
+                      id={item}
+                      type="checkbox"
+                    />
+                    {item}
+                  </label>
                 ))}
               </div>
             ))}
@@ -28,20 +33,25 @@ const AnimateCheckBox = () => {
               <div className=" col-xs-12 col-sm-6" key={index}>
                 {data.children.map((item, detail) => (
                   <label className="d-block" htmlFor={item} key={detail}>
-                    <input className="checkbox_animated" id={item} type="checkbox" />{item}
+                    <input
+                      className="checkbox_animated"
+                      id={item}
+                      type="checkbox"
+                    />
+                    {item}
                   </label>
                 ))}
               </div>
             ))}
           </div>
-        </div>  
+        </div>
       </div>
       <div className="mb-3">
         <label className="form-label-title mt-4">Upload Room Image here </label>
-        <DropZoneCommon/>
+        <DropZoneCommon onFilesSelected={() => console.log("DropZoneCommon")} />
       </div>
       <label className="form-label-title ">Room Description</label>
-        <EditorsSimple />           
+      <EditorsSimple />
     </div>
   );
 };

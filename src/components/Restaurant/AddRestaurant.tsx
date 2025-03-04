@@ -5,10 +5,22 @@ import DatePicker from "../Hotel/common/DatePicker";
 const AddRestaurant = () => {
   return (
     <form className="theme-form mega-form">
-      <div className="mb-3"><label className="form-label-title">Restaurant Name</label><input className="form-control" type="text" placeholder="Restaurant Name"/></div>
       <div className="mb-3">
-        <label htmlFor="type-of-restaurant" className="form-label-title ">Type of Restaurant</label>
-        <select id="type-of-restaurant" className="form-control js-example-basic-single col-sm-12">
+        <label className="form-label-title">Restaurant Name</label>
+        <input
+          className="form-control"
+          type="text"
+          placeholder="Restaurant Name"
+        />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="type-of-restaurant" className="form-label-title ">
+          Type of Restaurant
+        </label>
+        <select
+          id="type-of-restaurant"
+          className="form-control js-example-basic-single col-sm-12"
+        >
           <option value="FI">Fine Dining</option>
           <option value="BE"> Casual Dining</option>
           <option value="CO"> Contemporary Casual</option>
@@ -24,7 +36,12 @@ const AddRestaurant = () => {
           <div className=" mt-0 col-xs-12 col-md-6" key={index}>
             {item.children.map((data, i2) => (
               <label className="d-block" htmlFor={`Facility${i2 + 1}`} key={i2}>
-                <input className="checkbox_animated" id="Facility1" type="checkbox"/>{data}
+                <input
+                  className="checkbox_animated"
+                  id="Facility1"
+                  type="checkbox"
+                />
+                {data}
               </label>
             ))}
           </div>
@@ -60,36 +77,55 @@ const AddRestaurant = () => {
           </select>
         </div>
         <div className="col-sm-6">
-          <input type="text" placeholder="Zip" id="form3Example3" className="form-control"/>
+          <input
+            type="text"
+            placeholder="Zip"
+            id="form3Example3"
+            className="form-control"
+          />
         </div>
       </div>
       <div className="mb-3 mt-3">
         <label className="form-label-title ">Contact Number</label>
-        <input className="form-control" type="Number" placeholder="Contact Number"/>
+        <input
+          className="form-control"
+          type="Number"
+          placeholder="Contact Number"
+        />
       </div>
       <div className="mb-3">
         <label className="form-label-title "> Email Address</label>
-        <input className="form-control" type="email" placeholder=" Email address"/>
+        <input
+          className="form-control"
+          type="email"
+          placeholder=" Email address"
+        />
       </div>
       <div className="row">
         <div className="col-6">
           <label className="form-label-title ">Opening</label>
-          <div className="input-group date" >
-            <DatePicker/>
-            <div className="input-group-text"><i className="fa fa-clock-o" /></div>
+          <div className="input-group date">
+            <DatePicker />
+            <div className="input-group-text">
+              <i className="fa fa-clock-o" />
+            </div>
           </div>
         </div>
         <div className="col-6">
           <label className="form-label-title ">Closing</label>
           <div className="input-group date">
-            <DatePicker/>
-            <div className="input-group-text"><i className="fa fa-clock-o" /></div>
+            <DatePicker />
+            <div className="input-group-text">
+              <i className="fa fa-clock-o" />
+            </div>
           </div>
         </div>
       </div>
       <div className="mb-3 mt-3">
-        <label className="form-label-title ">Upload Restaurant Image here</label>
-        <DropZoneCommon/>
+        <label className="form-label-title ">
+          Upload Restaurant Image here
+        </label>
+        <DropZoneCommon onFilesSelected={() => console.log("DropZoneCommon")} />
       </div>
     </form>
   );
