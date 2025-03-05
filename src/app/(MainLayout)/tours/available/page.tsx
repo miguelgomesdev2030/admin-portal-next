@@ -21,9 +21,9 @@ const Available = () => {
   const { tourRows } = useSelector(tourRowsState);
   console.log("tourRows: ", tourRows);
 
-  // const deleteTour = (id: number) => {
-  //   dispatch(deleteToursAction(id));
-  // };
+  const deleteTour = (id: number) => {
+    // dispatch(deleteToursAction(id));
+  };
 
   return (
     <div className="container-fluid">
@@ -45,7 +45,7 @@ const Available = () => {
               </div>
               <div>
                 <div className="table-responsive table-desi">
-                  <AvailableTours tourRows={tourRows} />
+                  <AvailableTours tourRows={tourRows} deleteTour={deleteTour} />
                 </div>
               </div>
             </div>
