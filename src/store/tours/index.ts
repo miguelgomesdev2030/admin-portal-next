@@ -193,24 +193,24 @@ export const getToursAction = createAsyncThunk<
   }
 });
 
-export const deleteToursAction = createAsyncThunk<
-  {
-    id: number;
-  },
-  void,
-  { rejectValue: string }
->("tours/available", async (_req, { rejectWithValue }) => {
-  try {
-    const response = await api.get(`/api/tours`);
+// export const deleteToursAction = createAsyncThunk<
+//   {
+//     id: number;
+//   },
+//   void,
+//   { rejectValue: string }
+// >("tours/available", async (_req, { rejectWithValue }) => {
+//   try {
+//     const response = await api.get(`/api/tours`);
 
-    console.log("response: ", response.data);
-    return response.data; // Expected response: { id, image }
-  } catch (error) {
-    return rejectWithValue(
-      error.response?.data?.error || "Something went wrong."
-    );
-  }
-});
+//     console.log("response: ", response.data);
+//     return response.data; // Expected response: { id, image }
+//   } catch (error) {
+//     return rejectWithValue(
+//       error.response?.data?.error || "Something went wrong."
+//     );
+//   }
+// });
 
 const TourReducers = createSlice({
   name: "TourReducers",
