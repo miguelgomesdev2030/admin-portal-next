@@ -1,10 +1,30 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import AvailableTours from "@/components/Tours/AvailableTours";
 import PaginationBox from "@/Common/PaginationBox";
 import CommonCardHeader from "@/Common/CommonCardHeader";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/store";
+import {
+  deleteToursAction,
+  getToursAction,
+  tourRowsState,
+} from "@/store/tours";
 
 const Available = () => {
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(getToursAction());
+  }, []);
+
+  const { tourRows } = useSelector(tourRowsState);
+  console.log("tourRows: ", tourRows);
+
+  const deleteTour = (id: number) => {
+    dispatch(deleteToursAction(id));
+  };
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -25,7 +45,7 @@ const Available = () => {
               </div>
               <div>
                 <div className="table-responsive table-desi">
-                  <AvailableTours />
+                  <AvailableTours tourRows={tourRows} deleteTour={deleteTour} />
                 </div>
               </div>
             </div>

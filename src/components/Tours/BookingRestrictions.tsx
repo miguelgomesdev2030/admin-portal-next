@@ -1,12 +1,4 @@
-import CommonCardFooter from "@/Common/CommonCardFooter";
 import React from "react";
-import AnimateCheckBox from "./AnimateCheckBox";
-import EditorsSimple from "@/Common/EditorsSimple";
-import DropZoneCommon from "@/Common/DropZoneCommon";
-import WorldMap from "../Dashboard/WorldMap";
-import CustomDatePicker from "@/Common/CustomDatePicker";
-import Time from "react-datepicker/dist/time";
-import TimeSlot from "@/Common/TimeSlot";
 
 interface BookingRestrictionsProps {
   onInputChange: (field: string, value: string) => void;

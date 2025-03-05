@@ -2,8 +2,19 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { api } from "@/utils/api";
 import { Response } from "@/types/api";
 import { toast } from "react-toastify";
+import { RootState } from "..";
 
 interface InitialState {
+  tourRows: {
+    id: number;
+    name: string;
+    short_description: string;
+    duration_hours: number;
+    location: string;
+    what_to_bring: string;
+    know_before: string;
+    questions: string;
+  }[];
   tourData: {
     tourName: string;
     shortDescription: string;
@@ -60,6 +71,7 @@ type TourTypes = {
 };
 
 const initialState: InitialState = {
+  tourRows: [],
   tourData: {
     tourName: "",
     shortDescription: "",
@@ -142,6 +154,64 @@ export const addTourAction = createAsyncThunk(
   }
 );
 
+export const getToursAction = createAsyncThunk<
+  {
+    id: number;
+    name: string;
+    short_description: string;
+    duration_hours: number;
+    location: string;
+    what_to_bring: string;
+    know_before: string;
+    questions: string;
+  }[],
+  void,
+  { rejectValue: string }
+>("tours/available", async (_req, { rejectWithValue }) => {
+  try {
+    const response = await api.get<
+      Response<
+        {
+          id: number;
+          name: string;
+          short_description: string;
+          duration_hours: number;
+          location: string;
+          what_to_bring: string;
+          know_before: string;
+          questions: string;
+        }[]
+      >
+    >(`/api/tours`);
+
+    console.log("response: ", response.data);
+    return response.data; // Expected response: { id, image }
+  } catch (error) {
+    return rejectWithValue(
+      error.response?.data?.error || "Something went wrong."
+    );
+  }
+});
+
+export const deleteToursAction = createAsyncThunk<
+  {
+    id: number;
+  },
+  void,
+  { rejectValue: string }
+>("tours/available", async (_req, { rejectWithValue }) => {
+  try {
+    const response = await api.get(`/api/tours`);
+
+    console.log("response: ", response.data);
+    return response.data; // Expected response: { id, image }
+  } catch (error) {
+    return rejectWithValue(
+      error.response?.data?.error || "Something went wrong."
+    );
+  }
+});
+
 const TourReducers = createSlice({
   name: "TourReducers",
   initialState,
@@ -160,8 +230,24 @@ const TourReducers = createSlice({
         state.loading = false;
         state.error = action.payload as string;
         toast.error(action.payload as string);
+      })
+      .addCase(getToursAction.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getToursAction.fulfilled, (state, action) => {
+        state.tourRows = action.payload;
+        console.log(state.tourRows);
+        state.loading = false;
+      })
+      .addCase(getToursAction.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload as string;
+        toast.error(action.payload as string);
       });
   },
 });
+
+export const tourRowsState = (state: RootState) => state.TourReducers;
 
 export default TourReducers.reducer;

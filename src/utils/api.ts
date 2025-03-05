@@ -1,8 +1,7 @@
 import axios from "axios";
 
+const BACKEND_URL = "http://localhost:8080";
 export const api = axios.create({
-  // baseURL: "http://localhost:8080",
-  baseURL:
-    "http://bookingsystem-env-1.eba-ipbed9av.eu-west-3.elasticbeanstalk.com",
+  baseURL: BACKEND_URL,
   withCredentials: true,
 });
