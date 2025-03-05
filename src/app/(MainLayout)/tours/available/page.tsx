@@ -6,7 +6,7 @@ import CommonCardHeader from "@/Common/CommonCardHeader";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
 import {
-  deleteToursAction,
+  // deleteToursAction,
   getToursAction,
   tourRowsState,
 } from "@/store/tours";
@@ -45,7 +45,7 @@ const Available = () => {
               </div>
               <div>
                 <div className="table-responsive table-desi">
-                  <AvailableTours tourRows={tourRows} deleteTour={deleteTour} />
+                  <AvailableTours tourRows={tourRows} />
                 </div>
               </div>
             </div>
