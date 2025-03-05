@@ -21,9 +21,9 @@ const Available = () => {
   const { tourRows } = useSelector(tourRowsState);
   console.log("tourRows: ", tourRows);
 
-  const deleteTour = (id: number) => {
-    dispatch(deleteToursAction(id));
-  };
+  // const deleteTour = (id: number) => {
+  //   dispatch(deleteToursAction(id));
+  // };
 
   return (
     <div className="container-fluid">
