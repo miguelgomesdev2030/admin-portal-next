@@ -4,6 +4,8 @@ import AnimateCheckBox from "./AnimateCheckBox";
 import EditorsSimple from "@/Common/EditorsSimple";
 import DropZoneCommon from "@/Common/DropZoneCommon";
 import WorldMap from "../Dashboard/WorldMap";
+import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css";
 import CustomDatePicker from "@/Common/CustomDatePicker";
 import Time from "react-datepicker/dist/time";
 import TimeSlot from "@/Common/TimeSlot";

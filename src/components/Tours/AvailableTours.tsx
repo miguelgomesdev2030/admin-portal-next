@@ -4,6 +4,7 @@ import { ImagePath } from "@/utils/Constant";
 import Image from "next/image";
 import { Href } from "../../utils/Constant";
 import { toast } from "react-toastify";
+import Link from "next/link";
 
 interface TourRow {
   id: number;
@@ -18,11 +19,13 @@ interface TourRow {
 
 interface AvailableToursProps {
   tourRows: TourRow[];
+  // updateTour: Function;
   deleteTour: Function;
 }
 
 const AvailableTours: React.FC<AvailableToursProps> = ({
   tourRows,
+  // updateTour,
   deleteTour,
 }) => {
   console.log(tourRows);
@@ -53,19 +56,19 @@ const AvailableTours: React.FC<AvailableToursProps> = ({
             <td>{row.know_before}</td>
             <td>{row.questions}</td>
             <td>
-              <a href={Href}>
+              <Link href={`/tours/detail/${row.id}`}>
                 <i className="fa fa-eye" />
-              </a>
+              </Link>
             </td>
             <td>
-              <a href={Href}>
+              <Link href={`/tours/update/${row.id}`}>
                 <i className="fa fa-pencil-square-o" />
-              </a>
+              </Link>
             </td>
             <td>
-              <a href={Href} onClick={deleteTour(row.id)}>
+              <Link href={""} onClick={() => deleteTour(row.id)}>
                 <i className="fa fa-trash-o" />
-              </a>
+              </Link>
             </td>
           </tr>
         ))}

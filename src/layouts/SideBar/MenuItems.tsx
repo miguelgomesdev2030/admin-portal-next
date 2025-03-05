@@ -7,7 +7,6 @@ export const MENUITEMS: MenuItem[] = [
     icon: "Home",
     type: "link",
   },
-
   {
     title: "PRODUCT AREA",
     icon: "Box",
@@ -26,12 +25,12 @@ export const MENUITEMS: MenuItem[] = [
     type: "sub",
     menu: [
       {
-        url: "/tours/addtour",
+        url: "/tours/create",
         title: "Add a New Tour",
         type: "link",
       },
       {
-        url: "/tours/available",
+        url: "/tours/read",
         title: "Available Tours",
         type: "link",
       },
