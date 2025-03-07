@@ -4,7 +4,7 @@ import { Response } from "@/types/api";
 import { toast } from "react-toastify";
 import { RootState } from "..";
 
-interface TourRow {
+export interface TourRow {
   id: number;
   max_capacity: string;
   duration_minutes: string;
@@ -26,6 +26,7 @@ interface TourRow {
   what_to_bring: string;
   know_before: string;
   questions: string;
+  image?: string | null | undefined;
 }
 
 interface TimeSlot {
@@ -181,7 +182,7 @@ export const getToursAction = createAsyncThunk<
   try {
     const response = await api.get<Response<TourRow[]>>(`/api/tours`);
 
-    console.log("response: ", response.data);
+    // console.log("response: ", response.data);
     return response.data; // Expected response: { id, image }
   } catch (error) {
     return rejectWithValue(
@@ -282,7 +283,7 @@ const TourReducers = createSlice({
       })
       .addCase(getToursAction.fulfilled, (state, action) => {
         state.tourRows = action.payload;
-        console.log(state.tourRows);
+        // console.log(state.tourRows);
         state.loading = false;
       })
       .addCase(getToursAction.rejected, (state, action) => {

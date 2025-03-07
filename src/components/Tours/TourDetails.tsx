@@ -3,7 +3,12 @@ import React from "react";
 import AnimateCheckBox from "./AnimateCheckBox";
 import EditorsSimple from "@/Common/EditorsSimple";
 import DropZoneCommon from "@/Common/DropZoneCommon";
-import WorldMap from "../Dashboard/WorldMap";
+// import WorldMap from "../Dashboard/WorldMap";
+import dynamic from "next/dynamic";
+
+const WorldMap = dynamic(() => import("../Dashboard/WorldMap"), {
+  ssr: false,
+});
 
 interface TourData {
   tourName: string;
@@ -30,6 +35,8 @@ const TourDetails: React.FC<TourDetailsProps> = ({
   const handleFilesSelected = (files: File[]) => {
     onInputChange("uploadedFiles", files); // Store files in state
   };
+
+  const [checkPlace, setCheckPlace] = React.useState(false);
   return (
     <div className="container-fluid">
       <div className="row">
@@ -220,16 +227,16 @@ const TourDetails: React.FC<TourDetailsProps> = ({
                     </div>
                     <div className="mb-3">
                       <label className="form-label-title  ">Itinerary</label>
-                      {/* <WorldMap /> */}
+                      <WorldMap checkPlace={checkPlace} />
                       <br />
                       <button
                         className="btn btn-primary btn-block w-10"
                         type="button"
                         onClick={() => {
-                          console.log("clicked");
+                          setCheckPlace((pre) => !pre);
                         }}
                       >
-                        Click to Add Points
+                        {checkPlace ? "Click to Add Points" : "Add a point"}
                       </button>
                     </div>
                   </form>

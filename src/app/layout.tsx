@@ -1,5 +1,7 @@
 import { Providers } from "@/store/provider";
 import "../../public/assets/scss/app.scss";
+import "leaflet/dist/leaflet.css";
+import "leaflet-control-geocoder/dist/Control.Geocoder.css";
 import type { Metadata } from "next";
 import { ToastContainer } from "react-toastify";
 import ErrorBoundary from "@/Common/ErrorBoundry";

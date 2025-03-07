@@ -18,7 +18,7 @@ const DashboardContainer: React.FC = () => {
         <BookingHistory />
         <Calender />
         <TrafficChart />
-        <WorldMap />
+        <WorldMap checkPlace={false} />
         <Tours />
       </div>
     </div>

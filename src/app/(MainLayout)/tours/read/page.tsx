@@ -19,7 +19,7 @@ const Available = () => {
   }, []);
 
   const { tourRows } = useSelector(tourRowsState);
-  console.log("tourRows: ", tourRows);
+  // console.log("tourRows: ", tourRows);
 
   const deleteTour = (id: number) => {
     dispatch(deleteToursAction(id));
